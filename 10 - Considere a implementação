@@ -1,0 +1,44 @@
+/* 10- Considere a implementação de listas encadeadas utilizando apontadores vista em
+sala. Escreva um procedimento Troca(TipoLista* pLista, TipoCelula* p) que, dado um
+apontador para uma célula qualquer (p), troca de posição essa célula com a sua célula
+seguinte da lista, como mostrado na figura abaixo. (Obs. Não vale trocar apenas o
+campo item! Você deverá fazer a manipulação dos apontadores para trocar as duas
+células de posição). Não esqueça de tratar os casos especiais.*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct lista {
+ struct lista *cabeca;
+ struct lista *ultimo;
+}Lista;
+
+typedef struct apontador {
+ struct apontador *ante;
+ struct apontador *prox;
+ int dado;
+}Apontador;
+
+/* void Troca(struct lista *L, struct no *P) ou */
+void Troca(Lista *L, Apontador *P){
+	 Apontador *ante;
+	 Apontador *prox = P->prox;
+	 
+	 if(prox == NULL){
+	 	return; /* imposs�vel trocar posi��es. */
+		 } 
+	 ante = L->cabeca;
+	 while(ante->prox != P){
+	 	ante = ante->prox;
+	 }
+ /* ante � o n� anterior ao n� P */
+	 ante->prox = prox;
+	 P->prox = prox->prox;
+	 prox->prox = P;
+	 if(L->ultimo == prox) { L->ultimo = ante; }
+}
+
+int main(){
+	
+	return 0;
+}
