@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 typedef struct No {
     int dado;
     struct No *prox;
@@ -108,11 +109,11 @@ void copy(Lista *lista1, Lista *dest)
     }
 }
 
-int controller(void) {
+int main () {
     Lista *fila1 = (Lista *)malloc(sizeof(Lista));
     Lista *fila2 = (Lista *)malloc(sizeof(Lista));
     if (fila1 == NULL) {
-        printf("Erro de alocação");
+        printf("Erro de alocaÃ§Ã£o");
         exit(-1);
     } else {
         inicializaFila(fila1);
